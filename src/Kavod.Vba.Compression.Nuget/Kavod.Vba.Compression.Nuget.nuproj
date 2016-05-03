@@ -25,7 +25,7 @@
   <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
   <PropertyGroup Label="Configuration">
     <Id>Kavod.Vba.Compression</Id>
-    <Version>0.0.1</Version>
+    <Version>0.0.1-alpha</Version>
     <Title>VBA Compression Algorithm</Title>
     <Authors>Ross Knudsen</Authors>
     <Owners>Ross Knudsen</Owners>
