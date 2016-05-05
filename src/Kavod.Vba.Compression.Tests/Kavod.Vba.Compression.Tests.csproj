@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="CompressionExamples.cs" />
     <Compile Include="CompressionTestHelper.cs" />
+    <Compile Include="LargeCompressionTests.cs" />
     <Compile Include="TestCompressedChunkHeader.cs" />
     <Compile Include="TestCompressedContainer.cs" />
     <Compile Include="TestCopyToken.cs" />

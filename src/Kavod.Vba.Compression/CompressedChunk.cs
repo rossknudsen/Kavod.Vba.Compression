@@ -21,19 +21,12 @@ namespace Kavod.Vba.Compression
             Contract.Ensures(Header != null);
             Contract.Ensures(ChunkData != null);
 
-            var compressedChunkData = new CompressedChunkData(decompressedChunk);
-            if (compressedChunkData.Size < Globals.MaxBytesPerChunk)
-            {
-                ChunkData = compressedChunkData;
-                Header = new CompressedChunkHeader(true, 
-                    (ushort)(compressedChunkData.Size + Globals.NumberOfChunkHeaderBytes));
-            }
-            else
+            ChunkData = new CompressedChunkData(decompressedChunk);
+            if (ChunkData.Size >= Globals.MaxBytesPerChunk)
             {
                 ChunkData = new RawChunk(decompressedChunk.Data);
-                Header = new CompressedChunkHeader(false, 
-                    (ushort)(ChunkData.Size + Globals.NumberOfChunkHeaderBytes));
             }
+            Header = new CompressedChunkHeader(ChunkData);
         }
 
         internal CompressedChunk(BinaryReader dataReader)
@@ -43,7 +36,14 @@ namespace Kavod.Vba.Compression
             Contract.Ensures(ChunkData != null);
 
             Header = new CompressedChunkHeader(dataReader);
-            ChunkData = new CompressedChunkData(dataReader, Header.CompressedChunkDataSize);
+            if (Header.IsCompressed)
+            {
+                ChunkData = new CompressedChunkData(dataReader, Header.CompressedChunkDataSize);
+            }
+            else
+            {
+                ChunkData = new RawChunk(dataReader.ReadBytes(Header.CompressedChunkDataSize));
+            }
         }
 
         internal CompressedChunkHeader Header { get; }

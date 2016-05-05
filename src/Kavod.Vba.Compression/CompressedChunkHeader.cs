@@ -13,10 +13,10 @@ namespace Kavod.Vba.Compression
     /// <remarks></remarks>
     internal class CompressedChunkHeader
     {
-        internal CompressedChunkHeader(bool compressedFlag, UInt16 chunkSize)
+        internal CompressedChunkHeader(IChunkData chunkData)
         {
-            IsCompressed = compressedFlag;
-            CompressedChunkSize = chunkSize;
+            IsCompressed = chunkData is CompressedChunkData;
+            CompressedChunkSize = (ushort) (chunkData.Size + 2);
         }
 
         internal CompressedChunkHeader(UInt16 header)
@@ -80,12 +80,12 @@ namespace Kavod.Vba.Compression
         private void ValidateChunkSizeAndCompressedFlag()
         {
             if (IsCompressed 
-                && CompressedChunkSize > 4095)
+                && CompressedChunkSize > 4098)
             {
                 throw new Exception();
             }
             if (!IsCompressed 
-                && CompressedChunkSize != 4095)
+                && CompressedChunkSize != 4098)
             {
                 throw new Exception();
             }
