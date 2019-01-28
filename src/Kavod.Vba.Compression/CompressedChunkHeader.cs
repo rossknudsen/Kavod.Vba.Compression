@@ -43,9 +43,18 @@ namespace Kavod.Vba.Compression
                     IsCompressed = false;
                     break;
 
-                default:
-                    throw new Exception();
+                //default:
+                    //throw new Exception();
             }
+
+////# chunk size = 12 first bits of header + 3
+//            var chunk_size = (header & 0x0FFF) + 3;
+//            //# chunk signature = 3 next bits - should always be 0b011
+//            var chunk_signature = (header >> 12) & 0x07;
+//            if (chunk_signature != 0b011)
+//                (0).ToString();
+////# chunk flag = next bit - 1 == compressed, 0 == uncompressed
+//            var chunk_flag = (header >> 15) & 0x01;
 
             // 2.4.1.3.12 Extract CompressedChunkSize
             // SET temp TO Header BITWISE AND 0x0FFF

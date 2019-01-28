@@ -31,9 +31,9 @@ namespace Kavod.Vba.Compression
 
         internal CompressedChunk(BinaryReader dataReader)
         {
-            Contract.Requires<ArgumentNullException>(dataReader != null);
-            Contract.Ensures(Header != null);
-            Contract.Ensures(ChunkData != null);
+            //Contract.Requires<ArgumentNullException>(dataReader != null);
+            //Contract.Ensures(Header != null);
+            //Contract.Ensures(ChunkData != null);
 
             Header = new CompressedChunkHeader(dataReader);
             if (Header.IsCompressed)
