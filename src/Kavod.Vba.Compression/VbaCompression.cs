@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Kavod.Vba.Compression
+﻿namespace Kavod.Vba.Compression
 {
     public static class VbaCompression
     {

@@ -10,6 +10,9 @@ namespace Kavod.Vba.Compression
         [DebuggerStepThrough]
         internal static byte[] ToMcbsBytes(this string textToConvert, UInt16 codePage)
         {
+#if !NET45
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif
             return Encoding.GetEncoding(codePage).GetBytes(textToConvert);
         }
 

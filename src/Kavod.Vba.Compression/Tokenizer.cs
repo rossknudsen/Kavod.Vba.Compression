@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 
@@ -44,7 +43,6 @@ namespace Kavod.Vba.Compression
                 firstToken = otherToken;
                 secondToken = thisToken;
             }
-            Contract.Assert(firstToken.Position <= secondToken.Position);
 
             return firstToken.Position + firstToken.Length > secondToken.Position;
         }
@@ -158,14 +156,16 @@ namespace Kavod.Vba.Compression
             {
                 list = new Node(t, list);
             }
-            Contract.Assert(list != null);
 
             return FindBestPath(list);
         }
 
         private static Node FindBestPath(Node node)
         {
-            Contract.Requires<ArgumentNullException>(node != null);
+            if (node == null)
+            {
+                throw new ArgumentNullException(nameof(node));
+            }
 
             // find any overlapping tokens
             Node bestPath = null;
@@ -191,7 +191,10 @@ namespace Kavod.Vba.Compression
 
         private static IEnumerable<Node> GetOverlappingNodes(Node node)
         {
-            Contract.Requires<ArgumentNullException>(node != null);
+            if (node == null)
+            {
+                throw new ArgumentNullException(nameof(node));
+            }
 
             var firstNode = node;
 
@@ -205,7 +208,10 @@ namespace Kavod.Vba.Compression
 
         private static Node GetNextNonOverlappingNode(Node node)
         {
-            Contract.Requires<ArgumentNullException>(node != null);
+            if (node == null)
+            {
+                throw new ArgumentNullException(nameof(node));
+            }
 
             var firstNode = node;
 
@@ -294,7 +300,9 @@ namespace Kavod.Vba.Compression
                 // SET Length TO the MINIMUM of BestLength and MaximumLength
                 matchedLength = (UInt16)bestLength;
                 if (bestLength > result.MaximumLength)
+                {
                     matchedLength = result.MaximumLength;
+                }
 
                 // SET Offset TO DecompressedCurrent MINUS BestCandidate
                 matchedOffset = (UInt16)(decompressedCurrent - bestCandidate);
@@ -314,7 +322,10 @@ namespace Kavod.Vba.Compression
         {
             public Node(CopyToken value, Node nextNode)
             {
-                Contract.Requires<ArgumentNullException>(value != null);
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
 
                 Value = value;
                 NextNode = nextNode;
