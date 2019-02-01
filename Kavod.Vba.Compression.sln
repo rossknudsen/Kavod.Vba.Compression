@@ -3,15 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kavod.Vba.Compression", "src\Kavod.Vba.Compression\Kavod.Vba.Compression.csproj", "{E1DA4414-FAFE-4BE6-A380-BFE7AE1B98FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kavod.Vba.Compression", "src\Kavod.Vba.Compression\Kavod.Vba.Compression.csproj", "{E1DA4414-FAFE-4BE6-A380-BFE7AE1B98FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kavod.Vba.Compression.Tests", "src\Kavod.Vba.Compression.Tests\Kavod.Vba.Compression.Tests.csproj", "{96FBC36A-E9A7-4816-8F8F-BAFA8A462FE0}"
-EndProject
-Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "Kavod.Vba.Compression.Nuget", "src\Kavod.Vba.Compression.Nuget\Kavod.Vba.Compression.Nuget.nuproj", "{4775909D-8191-4F17-BAA5-A5168D5BA3F2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kavod.Vba.Compression.NetCore", "src\Kavod.Vba.Compression.NetCore\Kavod.Vba.Compression.NetCore.csproj", "{4E832F3D-A8DC-4D3A-979D-FA7CA2E5793A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kavod.Vba.Compression.NetStandard", "src\Kavod.Vba.Compression.NetStandard\Kavod.Vba.Compression.NetStandard.csproj", "{B5F741D1-098F-4225-86FE-3547245E3422}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kavod.Vba.Compression.Tests", "src\Kavod.Vba.Compression.Tests\Kavod.Vba.Compression.Tests.csproj", "{59AADB4B-0D8D-4A62-8369-6B38C6B835A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +17,10 @@ Global
 		{E1DA4414-FAFE-4BE6-A380-BFE7AE1B98FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1DA4414-FAFE-4BE6-A380-BFE7AE1B98FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1DA4414-FAFE-4BE6-A380-BFE7AE1B98FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96FBC36A-E9A7-4816-8F8F-BAFA8A462FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96FBC36A-E9A7-4816-8F8F-BAFA8A462FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96FBC36A-E9A7-4816-8F8F-BAFA8A462FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96FBC36A-E9A7-4816-8F8F-BAFA8A462FE0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4775909D-8191-4F17-BAA5-A5168D5BA3F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4775909D-8191-4F17-BAA5-A5168D5BA3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4775909D-8191-4F17-BAA5-A5168D5BA3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4775909D-8191-4F17-BAA5-A5168D5BA3F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E832F3D-A8DC-4D3A-979D-FA7CA2E5793A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E832F3D-A8DC-4D3A-979D-FA7CA2E5793A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E832F3D-A8DC-4D3A-979D-FA7CA2E5793A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E832F3D-A8DC-4D3A-979D-FA7CA2E5793A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5F741D1-098F-4225-86FE-3547245E3422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5F741D1-098F-4225-86FE-3547245E3422}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5F741D1-098F-4225-86FE-3547245E3422}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5F741D1-098F-4225-86FE-3547245E3422}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59AADB4B-0D8D-4A62-8369-6B38C6B835A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59AADB4B-0D8D-4A62-8369-6B38C6B835A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59AADB4B-0D8D-4A62-8369-6B38C6B835A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59AADB4B-0D8D-4A62-8369-6B38C6B835A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

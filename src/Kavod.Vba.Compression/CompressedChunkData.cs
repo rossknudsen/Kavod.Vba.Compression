@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 
@@ -19,8 +18,11 @@ namespace Kavod.Vba.Compression
 
         internal CompressedChunkData(DecompressedChunk chunk)
         {
-            Contract.Requires<ArgumentNullException>(chunk != null);
-            
+            if (chunk == null)
+            {
+                throw new ArgumentNullException(nameof(chunk));
+            }
+
             var tokens = Tokenizer.TokenizeUncompressedData(chunk.Data);
             _tokensequences.AddRange(tokens.ToTokenSequences());
         }

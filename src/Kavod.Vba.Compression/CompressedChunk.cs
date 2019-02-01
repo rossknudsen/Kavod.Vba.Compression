@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 
@@ -17,9 +16,10 @@ namespace Kavod.Vba.Compression
     {
         internal CompressedChunk(DecompressedChunk decompressedChunk)
         {
-            Contract.Requires<ArgumentNullException>(decompressedChunk != null);
-            Contract.Ensures(Header != null);
-            Contract.Ensures(ChunkData != null);
+            if (decompressedChunk == null)
+            {
+                throw new ArgumentNullException(nameof(decompressedChunk));
+            }
 
             ChunkData = new CompressedChunkData(decompressedChunk);
             if (ChunkData.Size >= Globals.MaxBytesPerChunk)
@@ -31,9 +31,10 @@ namespace Kavod.Vba.Compression
 
         internal CompressedChunk(BinaryReader dataReader)
         {
-            Contract.Requires<ArgumentNullException>(dataReader != null);
-            Contract.Ensures(Header != null);
-            Contract.Ensures(ChunkData != null);
+            if (dataReader == null)
+            {
+                throw new ArgumentNullException(nameof(dataReader));
+            }
 
             Header = new CompressedChunkHeader(dataReader);
             if (Header.IsCompressed)
