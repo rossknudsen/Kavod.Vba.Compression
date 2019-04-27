@@ -19,5 +19,9 @@ steps:
 - task: VSTest@2
   inputs:
     testSelector: testAssemblies
-    testAssemblyVer2: '**\*Test.dll'
+    testAssemblyVer2: |
+     **\*Test*.dll
+     !**\*Microsoft.VisualStudio.TestPlatform*
+     !**\obj\**
     codeCoverageEnabled: true
+    otherConsoleOptions: '/platform:x64 /Framework:.NETCoreApp,Version=v2.2 /logger:console;verbosity="normal" '
