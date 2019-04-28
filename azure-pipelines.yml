@@ -16,12 +16,21 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- task: VSTest@2
+# - task: VSTest@2
+#   inputs:
+#     testSelector: testAssemblies
+#     testAssemblyVer2: |
+#      **\*Test*.dll
+#      !**\*Microsoft.VisualStudio.TestPlatform*
+#      !**\obj\**
+#     codeCoverageEnabled: true
+#     otherConsoleOptions: '/platform:x64 /Framework:.NETCoreApp,Version=v2.2 /logger:console;verbosity="normal" '
+
+- task: PublishBuildArtifacts@1
   inputs:
-    testSelector: testAssemblies
-    testAssemblyVer2: |
-     **\*Test*.dll
-     !**\*Microsoft.VisualStudio.TestPlatform*
-     !**\obj\**
-    codeCoverageEnabled: true
-    otherConsoleOptions: '/platform:x64 /Framework:.NETCoreApp,Version=v2.2 /logger:console;verbosity="normal" '
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'nuget package' 
+    #publishLocation: 'Container' # Options: container, filePath
+    #targetPath: # Required when publishLocation == FilePath
+    #parallel: false # Optional
+    #parallelCount: # Optional
