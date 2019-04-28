@@ -2,18 +2,20 @@
 
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
-    <Copyright>Copyright ©  2016</Copyright>
+    <Copyright>Copyright © 2016</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
     <Authors>Ross Knudsen</Authors>
     <Company />
-    <Description>VBA uses a compression algorithm when packaging code into a VBA Project within a Microsoft Office file.  The specification can be found here: https://msdn.microsoft.com/en-us/library/dd923471(v=office.12).aspx</Description>
+    <Description>
+      VBA uses a compression algorithm when packaging code into a VBA Project within a Microsoft Office file.  
+      The specification can be found here: https://msdn.microsoft.com/en-us/library/dd923471(v=office.12).aspx
+    </Description>
     <RepositoryUrl>https://github.com/rossknudsen/Kavod.Vba.Compression</RepositoryUrl>
-    <AssemblyVersion>0.0.2.0</AssemblyVersion>
-    <FileVersion>0.0.2.0</FileVersion>
     <PackageProjectUrl>https://github.com/rossknudsen/Kavod.Vba.Compression</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/rossknudsen/Kavod.Vba.Compression/master/LICENSE</PackageLicenseUrl>
-    <Version>0.0.2-alpha</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <VersionPrefix>0.0.2</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
