@@ -26,10 +26,18 @@ steps:
 #     codeCoverageEnabled: true
 #     otherConsoleOptions: '/platform:x64 /Framework:.NETCoreApp,Version=v2.2 /logger:console;verbosity="normal" '
 
+- task: CopyFiles@2
+  displayName: ''
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **/*.nupkg
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'nuget package' 
+    artifactName: 'nupkg' 
     #publishLocation: 'Container' # Options: container, filePath
     #targetPath: # Required when publishLocation == FilePath
     #parallel: false # Optional
