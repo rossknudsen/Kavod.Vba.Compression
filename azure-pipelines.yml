@@ -1,0 +1,39 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: |
+    dotnet build --configuration $(buildConfiguration)
+    dotnet pack --include-symbols
+  displayName: 'dotnet build $(buildConfiguration)'
+
+- task: VSTest@2
+  displayName: 'dotnet test'
+  inputs:
+    testSelector: testAssemblies
+    testAssemblyVer2: |
+     **\*Test*.dll
+     !**\*Microsoft.VisualStudio.TestPlatform*
+     !**\obj\**
+    codeCoverageEnabled: true
+    otherConsoleOptions: '/platform:x64 /Framework:.NETCoreApp,Version=v2.2 /logger:console;verbosity="normal" '
+
+- task: CopyFiles@2
+  displayName: 'copy nuget packages'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **/*.nupkg
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'publish artifacts'
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'nupkg'
