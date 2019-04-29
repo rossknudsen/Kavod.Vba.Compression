@@ -13,7 +13,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: |
+    dotnet build --configuration $(buildConfiguration)
+    dotnet pack --include-symbols
   displayName: 'dotnet build $(buildConfiguration)'
 
 # - task: VSTest@2
